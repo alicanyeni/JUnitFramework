@@ -1,14 +1,14 @@
 package Ders07;
 
-import org.apache.poi.ss.usermodel.*;
-import org.junit.Assert;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.Test;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class C01_ReadExcel {
+public class C02_ReadExcelPractice {
 
     //- Dosya yolunu bir String degiskene atayalim
     //- FileInputStream objesi olusturup,parametre olarak dosya yolunu girelim
@@ -16,28 +16,17 @@ public class C01_ReadExcel {
     //- Sheet objesi olusturun
     //- Row objesi olusturun
     //- Cell objesi olusturun
-    //- 3. index'deki satirin 2. index'indeki datanin Norvec oldugunu test edin
+
 
     @Test
-    public void readExcelTest() throws IOException {
+    public void readExcel() throws IOException {
         String excel = "src/resources/takimlar.xlsx";
 
         FileInputStream fis = new FileInputStream(excel);
 
         Workbook workbook = WorkbookFactory.create(fis);
 
-        Sheet sheet = workbook.getSheet("Sayfa1");
-
-        Row row = sheet.getRow(3);
-
-        Cell cell = row.getCell(2);
-
-        String expectedData = "Norvec";
-        String actualData = cell.toString();
-
-        Assert.assertEquals(expectedData, actualData);
-
+        String actualData = workbook.getSheet("Sayfa1").getRow(4).getCell(1).toString();
         System.out.println(actualData);
-
     }
 }
