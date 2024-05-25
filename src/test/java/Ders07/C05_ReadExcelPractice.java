@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class C05_ReadExcelPractice {
+
     //-Dosya yolunu bir String degiskene atayalim
     //-FileInputStream objesi olusturup,parametre olarak dosya yolunu girelim
     //-Workbook objesi olusturalim,parameter olarak fileInputStream objesini girelim
